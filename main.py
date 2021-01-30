@@ -9,9 +9,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
+  # If the bot is the sender
+  if message.author == client.user:
+      return  
+  if message.channel.name.lower() == "help":
+    # Process NLP here
+    # Call Charity API here
+    # Return local retailer details here
+    await message.channel.send('Hello!')
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
 client.run(os.getenv("TOKEN"))
